@@ -9,29 +9,7 @@
 
 .homeHeader {
     display: flex;
-    justify-content: space-between; /* This will put space between the title and the buttons */
-    align-items: center; /* This will center the content vertically */
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100vw; /* Make sure the header spans the full width of the viewport */
-    text-align: center;
-}
-
-.homeHeader h1 {
-    margin: 0 auto; /* This will center the title in its container */
-    flex: 1; /* Allow the title to take up the space it needs */
-    text-align: center; /* Center the text inside the flex container */
-}
-
-.headerActions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}.homeHeader {
-    display: flex;
-    justify-content: space-between; /* Distribute space between the left, center, and right sections */
+    justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
     padding: 20px;
@@ -39,17 +17,62 @@
     width: 100vw;
 }
 
-.homeHeader h1 {
-    margin: 0;
-    text-align: center;
-    flex: 1; /* This centers the title and allows it to grow to take up the space between the upload and logout buttons */
-}
-
 .headerActions {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+.uploadContainer {
+    display: flex;
+    align-items: center; /* Align the + button and file name display horizontally */
+    gap: 10px; /* Space between the + button and file name */
+    margin-right: 70px; /* Adjust to properly align with the rest of the content */
+}
+
+.customFileUpload {
+    background-color: #4285f4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileNameDisplay {
+    font-size: 14px;
+    color: #202124;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #f1f3f4;
+}
+
+.uploadButton {
+    background-color: #34a853;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.uploadButton:hover {
+    background-color: #2b8b43;
+}
+
+.uploadButton:disabled {
+    background-color: #a6d5a8;
+    cursor: not-allowed;
 }
 
 .logoutButton {
@@ -60,7 +83,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    margin-right: 40px;
+    margin-right:40px;
 }
 
 .logoutButton:hover {
@@ -86,7 +109,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 105px;
+    margin-right: 0px;
 }
 
 .uploadButton {
@@ -97,7 +120,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    margin-right: 98px;
+    margin-right: 180px;
 }
 
 .uploadButton:hover {
@@ -173,7 +196,7 @@
 }
 
 .downloadButton:hover {
-    background-color: #357ae8;
+    background-color: #f8f8f9;
 }
 
 .noFilesMessage {
@@ -293,4 +316,43 @@
 
 .saveRenameButton {
     margin-left: 5px;
+}
+
+/* Spinner Styles */
+.spinnerSmall {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #4285f4;
+    border-radius: 50%;
+    width: 15px; /* Adjust the size */
+    height:15px; /* Adjust the size */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Spinner Styles */
+.spinnerSmallLogout {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #fbfcfd;
+    border-radius: 50%;
+    width: 15px; /* Adjust the size */
+    height:15px; /* Adjust the size */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -136,25 +136,72 @@ button[type="submit"]:hover {
     box-shadow: none; /* Remove any shadow that might be applied */
 }
 
-.spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #4285f4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
+
+.subtitle {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
 }
 
-@keyframes spin {
+/* Add subtle animation to the container */
+.container {
+    animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
     0% {
-        transform: rotate(0deg);
+        transform: translateY(30px);
+        opacity: 0;
     }
     100% {
-        transform: rotate(360deg);
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
+/* Button hover effect */
+button:hover {
+    transform: translateY(-3px);
+}
 
+/* Mobile responsiveness for buttons */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Add these new styles to your existing styles.css */
+
+/* Lock Container */
+.lock-container {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+}
+
+/* SVG styling */
+.lock-svg {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+/* Initial open state */
+.lock-shackle {
+    transform-origin: 32px 30px;
+    transform: rotate(30deg); /* Start the lock in the open position */
+    transition: transform 1s ease-in-out; /* Smooth transition for shackle */
+}
+
+/* Closed lock state */
+.locked .lock-shackle {
+    transform: rotate(0deg); /* Rotate back to 0 degrees for closed state */
+}
 
