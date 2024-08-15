@@ -33,14 +33,14 @@ const Home = () => {
         formData.append('file', file);
 
         try {
-            const response = await api.post('/files/upload', formData, {
+            await api.post('/files/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
 
             // Update the file list with the newly uploaded file
-            setFiles([...files, { name: file.name, url: response.data.url }]);
+            setFiles([...files, { name: file.name }]);
             setFile(null); // Clear the file input
             setError(null); // Clear any errors
         } catch (err) {
@@ -49,24 +49,54 @@ const Home = () => {
         }
     };
 
+    const handleDownload = async (fileName) => {
+        try {
+            console.log('Downloading file', fileName);
+            const response = await api.get(`/files/download/${fileName}`, {
+                responseType: 'blob', // Handle binary data
+            });
+
+            // Create a link and trigger a download
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', fileName); // Set the file name for download
+            document.body.appendChild(link);
+            link.click();
+
+            // Clean up the link element
+            link.parentNode.removeChild(link);
+        } catch (err) {
+            console.error('Error downloading file', err);
+            setError('Error downloading file.');
+        }
+    };
+
     return (
         <div className="container">
             <h1>Home Page</h1>
+   
+            
 
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Upload</button>
             {error && <p className="error">{error}</p>}
 
             <h2>Uploaded Files</h2>
-            <ul>
-                {files.map((file, index) => (
-                    <li key={index}>
-                        <a href={file.url} target="_blank" rel="noopener noreferrer">
-                            {file.name}
-                        </a>
-                    </li>
-                ))}
-            </ul>
+            {files.length > 0 ? (
+                <ul>
+                    {files.map((file, index) => (
+                        <li key={index}>
+                            <span>{file.name}</span>
+                            <button onClick={() => handleDownload(file.name)}>
+                                Download
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No files uploaded yet.</p>
+            )}
         </div>
     );
 };
