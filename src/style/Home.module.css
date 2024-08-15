@@ -1,0 +1,296 @@
+/* Home.module.css */
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.homeHeader {
+    display: flex;
+    justify-content: space-between; /* This will put space between the title and the buttons */
+    align-items: center; /* This will center the content vertically */
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100vw; /* Make sure the header spans the full width of the viewport */
+    text-align: center;
+}
+
+.homeHeader h1 {
+    margin: 0 auto; /* This will center the title in its container */
+    flex: 1; /* Allow the title to take up the space it needs */
+    text-align: center; /* Center the text inside the flex container */
+}
+
+.headerActions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}.homeHeader {
+    display: flex;
+    justify-content: space-between; /* Distribute space between the left, center, and right sections */
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+}
+
+.homeHeader h1 {
+    margin: 0;
+    text-align: center;
+    flex: 1; /* This centers the title and allows it to grow to take up the space between the upload and logout buttons */
+}
+
+.headerActions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logoutButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 40px;
+}
+
+.logoutButton:hover {
+    background-color: #d32f2f;
+}
+
+
+
+#file-upload {
+    display: none;
+}
+
+.customFileUpload {
+    background-color: #4285f4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    width:5px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 105px;
+}
+
+.uploadButton {
+    background-color: #34a853;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 98px;
+}
+
+.uploadButton:hover {
+    background-color: #2b8b43;
+}
+
+.uploadButton:disabled {
+    background-color: #a6d5a8;
+    cursor: not-allowed;
+}
+
+.fileDisplay {
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color:white;
+}
+
+.fileTable {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fileTableHeader {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    background-color: rgb(114, 135, 221);
+    padding: 10px;
+    font-weight: bold;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    color: black;
+}
+
+.fileRow {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.3s;
+}
+
+.fileRow:hover {
+    background-color: #354b6f;
+}
+
+.fileName {
+    display: flex;
+    align-items: center;
+}
+
+.fileModified,
+.fileSize,
+.fileSharing {
+    text-align: left;
+    color:white;
+}
+
+.downloadButton {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+}
+
+.downloadButton:hover {
+    background-color: #357ae8;
+}
+
+.noFilesMessage {
+    font-size: 18px;
+    color: #70757a;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fileNameDisplay {
+    font-size: 14px;
+    color: #202124;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* You can adjust the width as needed */
+    text-align: center; /* Center the text */
+    padding: 5px 10px;
+    border-radius: 20px; /* Make the container elliptical */
+    background-color: #f1f3f4;
+    margin-right: 70px; /* Align with the Upload button */
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #4285f4;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.deleteButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.renameButton {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.renameContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.renameInput {
+    padding: 5px;
+    padding-right: 25px; /* Add padding to the right to make room for the "X" */
+    font-size: 15px;
+    width: 180px;
+    box-sizing: border-box;
+}
+
+.cancelRenameButton {
+    position: absolute;
+    right: 80px;
+    top: 20%;
+    
+    background-color: transparent;
+    color: #999;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.cancelRenameButton:hover {
+    color: darkred;
+    background: transparent;
+}
+
+/* Example CSS adjustments */
+.fileActions button {
+    background: rgb(255, 255, 255);
+    color: #4285f4;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.renameContainer {
+    display: flex;
+    align-items: center;
+}
+
+.renameInput {
+    margin-right: 5px;
+}
+
+.saveRenameButton {
+    margin-left: 5px;
+}

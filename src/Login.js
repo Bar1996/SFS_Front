@@ -7,14 +7,15 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false); // Added loading state
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Start loading
         try {
             const response = await api.post('/auth/login', { email, password });
 
-            // Check if login was successful
             if (response.data.success) {
                 const { accessToken, refreshToken } = response.data;
                 await setToken(accessToken, refreshToken);
@@ -27,9 +28,10 @@ const Login = () => {
         } catch (err) {
             setError('Login failed. Please try again.');
             console.error(err);
+        } finally {
+            setLoading(false); // Stop loading
         }
     };
-
 
     return (
         <div className="container">
@@ -50,8 +52,11 @@ const Login = () => {
                     placeholder="Password"
                     required
                 />
-                <button type="submit">Login</button>
+                <button type="submit" disabled={loading}>
+                    {loading ? 'Logging in...' : 'Login'}
+                </button>
             </form>
+            {loading && <div className="spinner"></div>} {/* Activity Indicator */}
             <p className="text-link">
                 Don’t have an account?{' '}
                 <button className="link-button" onClick={() => navigate('/register')}>
