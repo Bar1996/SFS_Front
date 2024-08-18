@@ -218,7 +218,7 @@ const Home = () => {
             )}
           </button>
         </div>
-
+        <h1>Secure Storage</h1>
         <button
           className={styles.logoutButton}
           onClick={handleLogout}
@@ -230,6 +230,7 @@ const Home = () => {
             "Logout"
           )}
         </button>
+        
       </header>
 
       <main className={styles.fileDisplay}>

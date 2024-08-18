@@ -205,3 +205,26 @@ button:hover {
     transform: rotate(0deg); /* Rotate back to 0 degrees for closed state */
 }
 
+
+.mobile-warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #ffcccc;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .mobile-warning h1 {
+    font-size: 2.5em;
+    color: #d32f2f;
+  }
+  
+  .mobile-warning p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
